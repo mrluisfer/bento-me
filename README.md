@@ -1,73 +1,184 @@
-# React + TypeScript + Vite
+# 🎨 Bento.me - Portfolio Personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un portfolio moderno y responsive construido con React, TypeScript y Vite, utilizando un diseño estilo Bento Grid para mostrar proyectos, redes sociales y experiencia profesional.
 
-Currently, two official plugins are available:
+![Preview](https://img.shields.io/badge/React-19.2-61dafb?style=flat&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?style=flat&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-7.2-646cff?style=flat&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38bdf8?style=flat&logo=tailwindcss)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características
 
-## React Compiler
+- 🎯 **Diseño Bento Grid** - Layout modular y visualmente atractivo
+- 📱 **Totalmente Responsive** - Optimizado para móvil, tablet y desktop
+- ♿ **Accesibilidad** - Cumple con estándares WCAG con roles ARIA y navegación por teclado
+- 🎭 **Animaciones Fluidas** - Usando Framer Motion para transiciones suaves
+- 🌗 **Modo Oscuro** - Soporte para temas claro y oscuro
+- ⚡ **Rendimiento Optimizado** - Build rápido con Rolldown/Vite
+- 🎨 **UI Components** - Componentes reutilizables con Radix UI
+- 🔧 **Type-Safe** - 100% TypeScript con tipado estricto
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🚀 Inicio Rápido
 
-## Expanding the ESLint configuration
+### Prerequisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+
+- pnpm (recomendado) o npm
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/bento-me.git
+
+# Navegar al directorio
+cd bento-me
+
+# Instalar dependencias
+pnpm install
+
+# Iniciar servidor de desarrollo
+pnpm dev
+```
+
+El sitio estará disponible en `http://localhost:5173`
+
+## 📦 Scripts Disponibles
+
+```bash
+pnpm dev      # Servidor de desarrollo con HMR
+pnpm build    # Build de producción
+pnpm preview  # Preview del build de producción
+pnpm lint     # Ejecutar ESLint
+```
+
+## 🛠️ Stack Tecnológico
+
+### Core
+
+- **React 19.2** - UI Library
+- **TypeScript 5.9** - Type Safety
+- **Vite 7.2** (Rolldown) - Build Tool & Dev Server
+
+### Styling
+
+- **Tailwind CSS 4.1** - Utility-First CSS
+- **Class Variance Authority** - Component Variants
+- **Framer Motion** - Animaciones
+
+### UI Components
+
+- **Radix UI** - Componentes accesibles sin estilos
+- **Lucide React** - Iconos modernos
+- **shadcn/ui** - Componentes pre-construidos
+
+## 📁 Estructura del Proyecto
+
+```
+bento-me/
+├── public/
+│   ├── images/          # Imágenes estáticas
+│   └── profile.webp     # Foto de perfil
+├── src/
+│   ├── components/
+│   │   ├── cards/       # Componentes de tarjetas
+│   │   │   ├── base/    # Tarjetas base reutilizables
+│   │   │   ├── social/  # Tarjetas de redes sociales
+│   │   │   └── work/    # Tarjetas de trabajo/proyectos
+│   │   ├── icons/       # Iconos personalizados
+│   │   └── ui/          # Componentes UI base
+│   ├── constants/       # Configuraciones y presets
+│   ├── lib/            # Utilidades
+│   ├── App.tsx         # Componente principal
+│   ├── main.tsx        # Entry point
+│   └── index.css       # Estilos globales
+├── components.json     # Configuración shadcn/ui
+└── vite.config.ts     # Configuración Vite
+```
+
+## 🎨 Personalización
+
+### Agregar una Nueva Tarjeta Social
+
+1. Crear el componente en `src/components/cards/social/`:
+
+```tsx
+import { SocialGalleryCard } from "../base/SocialGalleryCard";
+import { MyIcon } from "../../icons/myicon";
+
+export function MyCard() {
+  return (
+    <SocialGalleryCard
+      icon={<MyIcon />}
+      platform="Mi Plataforma"
+      username="@usuario"
+      url="https://..."
+      // ... más props
+    />
+  );
+}
+```
+
+2. Importarla y usarla en `App.tsx`
+
+### Modificar Colores
+
+Los colores están definidos en `src/index.css` usando variables CSS:
+
+```css
+:root {
+  --primary: oklch(...);
+  --secondary: oklch(...);
+  /* ... */
+}
+```
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px (sm)
+- **Desktop**: > 1024px (lg)
+
+## ♿ Accesibilidad
+
+- Navegación por teclado completa
+- Roles ARIA semánticos
+- Focus states visibles
+- Soporte para `prefers-reduced-motion`
+- Contraste de color accesible
+- Tap targets mínimos de 44px en móvil
+
+## 🔧 Configuración Avanzada
+
+### ESLint Type-Aware
+
+Para reglas de linting más estrictas:
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
+    files: ["**/*.{ts,tsx}"],
+    extends: [tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       },
-      // other options...
     },
   },
-])
+]);
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📄 Licencia
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Este proyecto está bajo la licencia MIT.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 👤 Autor
+
+**Luis Alvarez**
+
+- Email: mrluisfeer@gmail.com
+- Instagram: [@mrluisfer\_](https://instagram.com/mrluisfer_)
+
+---
+
+Hecho con ❤️ usando React + TypeScript + Vite
