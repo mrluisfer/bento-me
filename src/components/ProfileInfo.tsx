@@ -54,15 +54,10 @@ export const ProfileInfo = () => {
             A ship in harbor is safe, but that is not what ships are built for.
           </Subtitle>
           <Subtitle
-            className="hover:text-blue-600 focus-within:text-blue-600 transition-colors border-b border-transparent hover:border-blue-600 focus-within:border-blue-600"
+            className="hover:text-blue-600 focus-within:text-blue-600 transition-colors hover:underline focus-within:underline"
             icon={<MailIcon />}
           >
-            <a
-              href="mailto:mrluisfeer@gmail.com"
-              className="focus:outline-none focus-visible:outline-2 focus-visible:outline-blue-600 rounded"
-            >
-              mrluisfeer@gmail.com
-            </a>
+            <a href="mailto:mrluisfeer@gmail.com">mrluisfeer@gmail.com</a>
           </Subtitle>
         </div>
       </div>
