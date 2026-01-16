@@ -1,5 +1,5 @@
 import type { SocialGalleryCardProps } from "@/components/cards/base/SocialGalleryCard";
-import { AudioWaveformIcon, GitPullRequestCreateArrowIcon } from "lucide-react";
+import {AudioWaveformIcon, GitPullRequestCreateArrowIcon, UserIcon} from "lucide-react";
 
 /**
  * Preset configuration for social media cards.
@@ -33,6 +33,7 @@ export const socialCardPresets = {
     buttonClassName: "bg-[#0A66C2] hover:bg-[#004182]",
     actionLabel: "Connect",
     subtitle: "linkedin.com",
+      actionIcon: <UserIcon />
   },
   youtube: {
     buttonClassName: "bg-[#FF0000] hover:bg-[#CC0000]",
