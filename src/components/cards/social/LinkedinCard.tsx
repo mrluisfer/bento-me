@@ -8,7 +8,7 @@ export const LinkedinCard = () => {
       icon={<LinkedinIcon />}
       platform="LinkedIn"
       username="mrluisfer"
-      url="http://linkedin.com/in/mrluisfer/"
+      url="https://linkedin.com/in/mrluisfer/"
       singleImageMode
       images={["/images/linkedin-ss.webp"]}
       {...socialCardPresets.linkedin}
