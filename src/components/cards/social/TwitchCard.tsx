@@ -8,7 +8,7 @@ export const TwitchCard = () => {
       icon={<TwitchIcon />}
       platform="Twitch"
       username="mrluisfer"
-      url="https://www.twitch.tv/mrluisfer"
+      url="https://www.twitch.tv/mrluisfer_"
       variant="compact"
       {...socialCardPresets.twitch}
     />
