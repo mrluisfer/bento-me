@@ -1,5 +1,10 @@
-import { ElementType, memo } from "react";
-import { AnimatePresence, motion, MotionProps, Variants } from "motion/react";
+import { type ElementType, memo } from "react";
+import {
+  AnimatePresence,
+  motion,
+  type MotionProps,
+  type Variants,
+} from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -381,6 +386,7 @@ const TextAnimateBase = ({
 
   return (
     <AnimatePresence mode="popLayout">
+      {/* eslint-disable-next-line react-hooks/static-components */}
       <MotionComponent
         variants={finalVariants.container as Variants}
         initial="hidden"
