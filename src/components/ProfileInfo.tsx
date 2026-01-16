@@ -47,7 +47,7 @@ function Subtitle({
 
 export const ProfileInfo = () => {
   return (
-    <header className="pt-4 sm:pt-8 lg:pt-16 lg:sticky lg:top-16 self-start mb-8 lg:mb-0">
+    <header className="pt-4 sm:pt-8 lg:pt-16 lg:sticky lg:top-16 lg:self-start lg:h-fit mb-8 lg:mb-0">
       <Avatar className="size-24 sm:size-32 lg:size-46 mt-2 sm:mt-4 mx-auto lg:mx-0">
         <AvatarImage
           src="/profile.webp"
