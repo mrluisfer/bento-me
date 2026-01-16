@@ -10,7 +10,7 @@ export const YoutubeEmbedCard = ({ url, className }: YoutubeEmbedCardProps) => {
   return (
     <Card
       className={cn(
-        "relative overflow-hidden rounded-4xl p-0 border-0 aspect-video w-97.5",
+        "relative overflow-hidden rounded-4xl p-0 border-0 aspect-video w-full max-w-[390px]",
         className
       )}
     >

@@ -14,7 +14,7 @@ import { TextSeparator } from "./components/TextSeparator";
 
 function App() {
   return (
-    <main className="grid lg:grid-cols-[500px_1fr] grid-cols-1 min-h-dvh lg:h-dvh lg:overflow-hidden p-4 sm:p-8 lg:p-16 lg:pr-0 lg:pt-0">
+    <main className="grid lg:grid-cols-[500px_1fr] grid-cols-1 min-h-dvh lg:h-dvh lg:overflow-hidden overflow-x-hidden p-4 sm:p-8 lg:p-16 lg:pr-0 lg:pt-0">
       <ProfileInfo />
       <div
         className="overflow-y-scroll min-h-dvh pb-16 sm:pb-24 lg:pb-32 lg:pr-16 scroll-smooth"
