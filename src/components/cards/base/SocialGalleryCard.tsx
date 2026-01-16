@@ -167,8 +167,8 @@ export function SocialGalleryCard({
       <Card
         className={cn(
           cardVariants({ variant, hover }),
-          cardClassName,
-          "hover:brightness-99.5"
+          "hover:brightness-99.5 transition-all shrink basis-0",
+          cardClassName
         )}
       >
         <CardContent className="flex items-start justify-between h-full">
