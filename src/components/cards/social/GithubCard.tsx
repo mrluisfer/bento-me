@@ -1,7 +1,7 @@
 import { GitHubIcon } from "@/components/icons/github";
-import { socialCardPresets } from "@/constants/socialMediaPresets";
 import { GitHubCalendar } from "react-github-calendar";
 import { SocialGalleryCard } from "../base/SocialGalleryCard";
+import { GitBranchPlusIcon } from "lucide-react";
 
 export const GithubCard = () => {
   return (
@@ -24,7 +24,10 @@ export const GithubCard = () => {
             style={{ maxWidth: "200px", height: "inherit" }}
           />
         }
-        {...socialCardPresets.github}
+        buttonClassName="bg-[#24292F] hover:bg-[#1B1F23]"
+        actionLabel="Follow"
+        followerCount={88}
+        actionIcon={<GitBranchPlusIcon />}
       />
     </div>
   );

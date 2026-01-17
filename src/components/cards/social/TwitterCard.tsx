@@ -1,5 +1,4 @@
 import { TwitterIcon } from "@/components/icons/twitter";
-import { socialCardPresets } from "@/constants/socialMediaPresets";
 import { AtSignIcon } from "lucide-react";
 import { SocialGalleryCard } from "../base/SocialGalleryCard";
 
@@ -9,10 +8,11 @@ export const TwitterCard = () => {
       icon={<TwitterIcon />}
       platform="Twitter"
       username="@mrluisfer_"
-      url="https://twitter.com/mrluisfer_"
+      url="https://twitter.com/_mrluisfer"
       variant="compact"
       actionIcon={<AtSignIcon />}
-      {...socialCardPresets.twitter}
+      buttonClassName="bg-[#1DA1F2] hover:bg-[#0C8BD9]"
+      cardClassName="bg-[#F5FAFE] hover:bg-[#F0F7FD]"
     />
   );
 };

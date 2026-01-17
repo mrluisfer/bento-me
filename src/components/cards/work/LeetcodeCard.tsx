@@ -1,6 +1,6 @@
 import { LeetcodeIcon } from "@/components/icons/leetcode";
-import { socialCardPresets } from "@/constants/socialMediaPresets";
 import { SocialGalleryCard } from "../base/SocialGalleryCard";
+import { CodeIcon } from "lucide-react";
 
 export const LeetcodeCard = () => {
   return (
@@ -10,7 +10,8 @@ export const LeetcodeCard = () => {
       username="mrluisfeer"
       url="https://leetcode.com/u/mrluisfeer/"
       variant={"compact"}
-      {...socialCardPresets.leetcode}
+      buttonClassName="bg-[#1da09c] hover:bg-[#157f7a]"
+      actionIcon={<CodeIcon />}
     />
   );
 };

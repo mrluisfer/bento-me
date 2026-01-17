@@ -5,6 +5,11 @@ import type { ReactNode } from "react";
 import { Button } from "../../ui/button";
 import { formatFollowerCount } from "./SocialGalleryCard.utils";
 import { buttonVariants } from "./SocialGalleryCard.variants";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type ButtonPlatform = VariantProps<typeof buttonVariants>["platform"];
 
@@ -35,7 +40,7 @@ export function CardInfo({
   buttonClassName,
 }: CardInfoProps) {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full max-w-50">
       {/* Platform Icon */}
       <div className="size-10 flex items-center justify-center shrink-0">
         {icon}
@@ -52,14 +57,23 @@ export function CardInfo({
         <p
           className={cn(
             "text-sm font-medium truncate text-muted-foreground",
-            title && "mt-1"
+            title && "mt-1",
           )}
         >
           {username}
         </p>
 
         {subtitle && (
-          <p className="text-xs text-muted-foreground/70 mt-0.5">{subtitle}</p>
+          <Tooltip open={subtitle.length > 25 ? undefined : false}>
+            <TooltipTrigger asChild>
+              <p className="text-xs text-muted-foreground/70 my-0.5 truncate">
+                {subtitle}
+              </p>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-xs text-muted-foreground/90">{subtitle}</p>
+            </TooltipContent>
+          </Tooltip>
         )}
       </div>
 
@@ -68,7 +82,7 @@ export function CardInfo({
         <Button
           className={cn(
             buttonVariants({ platform: buttonPlatform }),
-            buttonClassName
+            buttonClassName,
           )}
           size="sm"
           asChild

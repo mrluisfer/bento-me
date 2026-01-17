@@ -1,4 +1,3 @@
-import { socialCardPresets } from "@/constants/socialMediaPresets";
 import { InstagramIcon } from "../../icons/instagram";
 import { SocialGalleryCard } from "../base/SocialGalleryCard";
 
@@ -17,8 +16,10 @@ export default function InstagramCard() {
       username="@mrluisfer_"
       url="https://www.instagram.com/mrluisfer_"
       images={instagramImages}
-      followerCount={1200}
-      {...socialCardPresets.instagram}
+      followerCount={65}
+      subtitle="instagram.com/mrluisfer_"
+      buttonClassName="hover:opacity-90 hover:bg-[#2875CA] bg-[#4093EF]"
+      cardClassName="max-w-[400px]"
     />
   );
 }

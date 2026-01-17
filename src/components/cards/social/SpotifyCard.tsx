@@ -1,18 +1,22 @@
 import { SpotifyIcon } from "@/components/icons/spotify";
-import { socialCardPresets } from "@/constants/socialMediaPresets";
 import { SocialGalleryCard } from "../base/SocialGalleryCard";
+import { AudioWaveformIcon } from "lucide-react";
 
 export const SpotifyCard = () => {
   return (
     <SocialGalleryCard
       icon={<SpotifyIcon />}
       platform="Spotify"
-      username="mrluisfeer"
-      url="https://open.spotify.com/user/mrluisfeer"
-      images={[
-        "https://images.unsplash.com/photo-1524650359799-842906ca1c06?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      ]}
-      {...socialCardPresets.spotify}
+      username="Deja que la música hable cuando las palabras no bastan"
+      url="https://open.spotify.com/playlist/49spccWMHTuffh4NQiR4RN"
+      images={["/images/spotify/playlist1.webp"]}
+      buttonClassName="bg-[#1ED760] hover:bg-[#1aa34a]"
+      actionLabel="Listen"
+      cardClassName="bg-[#EDFCF3] hover:bg-[#E7F9EE]"
+      actionIcon={<AudioWaveformIcon />}
+      subtitle="Sumérgete y deja que cada nota te recuerde que aún en la tormenta, existe belleza."
+      singleImageMode
+      followerCount={"1,580 songs"}
     />
   );
 };

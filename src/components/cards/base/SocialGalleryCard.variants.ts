@@ -5,7 +5,7 @@ export const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "w-full max-w-[390px] h-[175px]",
+        default: "w-full max-w-[390px] h-[190px]",
         compact: "w-full max-w-[200px] h-[175px] md:size-[175px]",
         large: "w-full max-w-[450px] h-52",
       },
@@ -21,7 +21,7 @@ export const cardVariants = cva(
       variant: "default",
       hover: "subtle",
     },
-  }
+  },
 );
 
 export const imageVariants = cva("object-cover transition-all duration-300", {
@@ -76,7 +76,7 @@ export const buttonVariants = cva(
     defaultVariants: {
       platform: "default",
     },
-  }
+  },
 );
 
 export const gridVariants = cva("grid gap-2 shrink-0", {

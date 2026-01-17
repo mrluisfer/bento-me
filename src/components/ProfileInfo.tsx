@@ -25,7 +25,7 @@ function Subtitle({
     <p
       className={cn(
         "text-sm sm:text-md mt-4 sm:mt-6 lg:mt-8 text-muted-foreground inline-flex items-start gap-2 justify-start md:max-w-70 xl:max-w-87",
-        className
+        className,
       )}
     >
       <div className="size-4 mr-2 shrink-0" aria-hidden="true">
@@ -60,7 +60,7 @@ export const ProfileInfo = () => {
           href="https://mrluisfer.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 rounded"
+          className="no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 rounded w-fit mx-auto lg:mx-0 block"
         >
           <TextAnimate
             animation="scaleUp"
@@ -69,7 +69,7 @@ export const ProfileInfo = () => {
             delay={0.05}
             once
             as={"h1"}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 sm:mt-8 lg:mt-12 text-center lg:text-left"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-center lg:text-left"
           >
             Luis Alvarez
           </TextAnimate>
