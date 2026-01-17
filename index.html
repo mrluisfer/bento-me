@@ -17,14 +17,36 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
 
-  <!-- Favicon -->
+  <!-- Favicon & Icons -->
   <link rel="icon" type="image/webp" href="/profile.webp" />
+  <link rel="icon" type="image/webp" sizes="32x32" href="/favicon-32x32.webp" />
+  <link rel="icon" type="image/webp" sizes="16x16" href="/favicon-16x16.webp" />
+  <link rel="shortcut icon" type="image/webp" href="/ss.webp" />
+
+  <!-- Apple Touch Icons -->
   <link rel="apple-touch-icon" href="/profile.webp" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.webp" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.webp" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.webp" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.webp" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.webp" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.webp" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.webp" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.webp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.webp" />
 
   <!-- Theme & App -->
   <meta name="theme-color" content="#0f172a" />
   <meta name="color-scheme" content="dark light" />
   <meta name="application-name" content="Luis Alvarez Portfolio" />
+
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileColor" content="#0f172a" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.webp" />
+  <meta name="msapplication-square70x70logo" content="/ms-icon-70x70.webp" />
+  <meta name="msapplication-square150x150logo" content="/ms-icon-150x150.webp" />
+  <meta name="msapplication-wide310x150logo" content="/ms-icon-310x150.webp" />
+  <meta name="msapplication-square310x310logo" content="/ms-icon-310x310.webp" />
 
   <!-- Geo Tags -->
   <meta name="geo.region" content="MX-MIC" />
@@ -32,7 +54,7 @@
   <meta name="geo.position" content="19.7059;-101.1949" />
   <meta name="ICBM" content="19.7059, -101.1949" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook / LinkedIn / Discord / Slack / WhatsApp / Telegram -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bento-me.com/" />
   <meta property="og:site_name" content="Luis Alvarez Portfolio" />
@@ -40,10 +62,13 @@
   <meta property="og:description"
     content="Full-Stack Software Engineer specialized in React, Next.js, TypeScript, and Node.js. 3+ years of experience building scalable, high-performance web applications." />
   <meta property="og:image" content="https://bento-me.com/og-image.webp" />
+  <meta property="og:image:secure_url" content="https://bento-me.com/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Luis Alvarez - Full-Stack Engineer" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_MX" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -56,76 +81,120 @@
   <meta name="twitter:image" content="https://bento-me.com/og-image.webp" />
   <meta name="twitter:image:alt" content="Luis Alvarez - Full-Stack Engineer" />
 
+  <!-- Pinterest -->
+  <meta name="pinterest-rich-pin" content="true" />
+  <meta property="og:see_also" content="https://github.com/mrluisfer" />
+
+  <!-- LinkedIn specific (uses OG but prefers these) -->
+  <meta property="article:author" content="Luis Fernando Alvarez Manriquez" />
+
+  <!-- Google / Schema.org (for Google Search, Google Images) -->
+  <meta itemprop="name" content="Luis Alvarez | Full-Stack Engineer" />
+  <meta itemprop="description"
+    content="Full-Stack Software Engineer specialized in React, Next.js, TypeScript, and Node.js. 3+ years of experience building scalable, high-performance web applications." />
+  <meta itemprop="image" content="https://bento-me.com/og-image.webp" />
+
   <!-- Canonical -->
   <link rel="canonical" href="https://bento-me.com/" />
+
+  <!-- Alternate languages (for i18n if you add it later) -->
+  <link rel="alternate" hreflang="en" href="https://bento-me.com/" />
+  <link rel="alternate" hreflang="es" href="https://bento-me.com/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://bento-me.com/" />
 
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://github.com" />
+  <link rel="dns-prefetch" href="https://linkedin.com" />
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Luis Fernando Alvarez Manriquez",
-        "alternateName": "Luis Alvarez",
-        "url": "https://bento-me.com/",
-        "image": "https://bento-me.com/profile.webp",
-        "email": "mailto:mrluisfeer@gmail.com",
-        "jobTitle": "Full-Stack Software Engineer",
-        "description": "Full-Stack Software Engineer specialized in building scalable, high-performance web applications with React, Next.js, TypeScript, and Node.js.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Morelia",
-          "addressRegion": "Michoacan",
-          "addressCountry": "MX"
-        },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Instituto Tecnológico de Morelia"
-        },
-        "knowsLanguage": ["en", "es"],
-        "knowsAbout": [
-          "React.js",
-          "Next.js",
-          "TypeScript",
-          "Node.js",
-          "NestJS",
-          "TailwindCSS",
-          "PostgreSQL",
-          "MongoDB",
-          "Prisma",
-          "Frontend Development",
-          "Backend Development",
-          "Web Performance Optimization"
-        ],
-        "sameAs": [
-          "https://github.com/mrluisfer",
-          "https://linkedin.com/in/mrluisfer",
-          "https://twitter.com/mrluisfer_"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "CredixGS"
-        }
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luis Fernando Alvarez Manriquez",
+      "alternateName": "Luis Alvarez",
+      "url": "https://bento-me.com/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://bento-me.com/profile.webp",
+        "width": 400,
+        "height": 400
+      },
+      "email": "mailto:mrluisfeer@gmail.com",
+      "jobTitle": "Full-Stack Software Engineer",
+      "description": "Full-Stack Software Engineer specialized in building scalable, high-performance web applications with React, Next.js, TypeScript, and Node.js.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Morelia",
+        "addressRegion": "Michoacan",
+        "addressCountry": "MX"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Instituto Tecnológico de Morelia"
+      },
+      "knowsLanguage": ["en", "es"],
+      "knowsAbout": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "NestJS",
+        "TailwindCSS",
+        "PostgreSQL",
+        "MongoDB",
+        "Prisma",
+        "Frontend Development",
+        "Backend Development",
+        "Web Performance Optimization"
+      ],
+      "sameAs": [
+        "https://github.com/mrluisfer",
+        "https://linkedin.com/in/mrluisfer",
+        "https://twitter.com/mrluisfer_"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "CredixGS"
       }
-    </script>
+    }
+  </script>
 
   <!-- JSON-LD WebSite for Search Box -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Luis Alvarez Portfolio",
-        "url": "https://bento-me.com/",
-        "description": "Personal portfolio of Luis Alvarez, Full-Stack Engineer specialized in React, TypeScript, and Node.js.",
-        "author": {
-          "@type": "Person",
-          "name": "Luis Fernando Alvarez Manriquez"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Luis Alvarez Portfolio",
+      "url": "https://bento-me.com/",
+      "description": "Personal portfolio of Luis Alvarez, Full-Stack Engineer specialized in React, TypeScript, and Node.js.",
+      "author": {
+        "@type": "Person",
+        "name": "Luis Fernando Alvarez Manriquez"
+      },
+      "inLanguage": ["en", "es"]
+    }
+  </script>
+
+  <!-- JSON-LD BreadcrumbList for better navigation in search -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://bento-me.com/"
         }
-      }
-    </script>
+      ]
+    }
+  </script>
 </head>
 
 <body>
