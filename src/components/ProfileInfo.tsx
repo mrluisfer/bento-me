@@ -22,15 +22,17 @@ function Subtitle({
   by?: "text" | "word" | "character" | "line";
 }) {
   return (
-    <p
+    <div
       className={cn(
         "text-sm sm:text-md mt-4 sm:mt-6 lg:mt-8 text-muted-foreground inline-flex items-start gap-2 justify-start md:max-w-70 xl:max-w-87",
         className,
       )}
     >
-      <div className="size-4 mr-2 shrink-0" aria-hidden="true">
-        {icon}
-      </div>
+      {icon && (
+        <span className="size-4 mr-2 shrink-0 inline-flex" aria-hidden="true">
+          {icon}
+        </span>
+      )}
       <TextAnimate
         as={"span"}
         animation={animation as AnimationVariant}
@@ -41,7 +43,7 @@ function Subtitle({
       >
         {children as string}
       </TextAnimate>
-    </p>
+    </div>
   );
 }
 
