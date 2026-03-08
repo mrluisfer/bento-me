@@ -1,3 +1,8 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import type { VariantProps } from "class-variance-authority";
 import { PlusIcon } from "lucide-react";
@@ -5,11 +10,6 @@ import type { ReactNode } from "react";
 import { Button } from "../../ui/button";
 import { formatFollowerCount } from "./SocialGalleryCard.utils";
 import { buttonVariants } from "./SocialGalleryCard.variants";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 type ButtonPlatform = VariantProps<typeof buttonVariants>["platform"];
 
@@ -65,10 +65,12 @@ export function CardInfo({
 
         {subtitle && (
           <Tooltip open={subtitle.length > 25 ? undefined : false}>
-            <TooltipTrigger asChild>
-              <p className="text-xs text-muted-foreground/70 my-0.5 truncate">
-                {subtitle}
-              </p>
+            <TooltipTrigger
+              render={
+                <p className="text-xs text-muted-foreground/70 my-0.5 truncate" />
+              }
+            >
+              {subtitle}
             </TooltipTrigger>
             <TooltipContent>
               <p className="text-xs text-muted-foreground/90">{subtitle}</p>
@@ -85,17 +87,15 @@ export function CardInfo({
             buttonClassName,
           )}
           size="sm"
-          asChild
+          render={<span />}
         >
-          <span>
-            {actionIcon}
-            {actionLabel}
-            {followerCount !== undefined && (
-              <span className="ml-0.5 opacity-90">
-                {formatFollowerCount(followerCount)}
-              </span>
-            )}
-          </span>
+          {actionIcon}
+          {actionLabel}
+          {followerCount !== undefined && (
+            <span className="ml-0.5 opacity-90">
+              {formatFollowerCount(followerCount)}
+            </span>
+          )}
         </Button>
       )}
     </div>
