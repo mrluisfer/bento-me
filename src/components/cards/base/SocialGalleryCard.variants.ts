@@ -6,7 +6,7 @@ export const cardVariants = cva(
     variants: {
       variant: {
         default: "w-full max-w-[390px] h-[190px]",
-        compact: "w-full max-w-[200px] h-[175px] md:size-[175px]",
+        compact: "w-full max-w-[200px] h-[190px] md:w-[190px]",
         large: "w-full max-w-[450px] h-52",
       },
       hover: {
