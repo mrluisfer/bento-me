@@ -24,8 +24,8 @@ function App() {
         <TextSeparator>social</TextSeparator>
         <CardsContainer>
           <InstagramCard />
-          <SpotifyCard />
           <TwitterCard />
+          <SpotifyCard />
           <GithubCard />
         </CardsContainer>
         <CardsContainer>

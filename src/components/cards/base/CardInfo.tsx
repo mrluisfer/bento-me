@@ -49,14 +49,14 @@ export function CardInfo({
       {/* Content */}
       <div className="flex-1 flex flex-col mt-3">
         {title && (
-          <p className="text-base font-semibold text-foreground leading-tight">
+          <p className="text-small font-semibold text-foreground leading-tight">
             {title}
           </p>
         )}
 
         <p
           className={cn(
-            "text-sm font-medium truncate text-muted-foreground",
+            "text-small font-medium truncate text-muted-foreground",
             title && "mt-1",
           )}
         >
@@ -67,13 +67,13 @@ export function CardInfo({
           <Tooltip open={subtitle.length > 25 ? undefined : false}>
             <TooltipTrigger
               render={
-                <p className="text-xs text-muted-foreground/70 my-0.5 truncate" />
+                <p className="text-caption text-muted-foreground/70 my-0.5 truncate" />
               }
             >
               {subtitle}
             </TooltipTrigger>
             <TooltipContent>
-              <p className="text-xs text-muted-foreground/90">{subtitle}</p>
+              <p className="text-caption text-muted-foreground/90">{subtitle}</p>
             </TooltipContent>
           </Tooltip>
         )}

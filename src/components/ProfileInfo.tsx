@@ -24,7 +24,7 @@ function Subtitle({
   return (
     <div
       className={cn(
-        "text-sm sm:text-md mt-4 sm:mt-6 lg:mt-8 text-muted-foreground inline-flex items-start gap-2 justify-start md:max-w-70 xl:max-w-87",
+        "text-small mt-4 sm:mt-6 lg:mt-8 text-muted-foreground inline-flex items-start gap-2 justify-start md:max-w-70 xl:max-w-87",
         className,
       )}
     >
@@ -71,7 +71,7 @@ export const ProfileInfo = () => {
             delay={0.05}
             once
             as={"h1"}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-center lg:text-left"
+            className="text-title font-bold mt-4 text-center lg:text-left"
           >
             Luis Alvarez
           </TextAnimate>
@@ -82,7 +82,7 @@ export const ProfileInfo = () => {
           duration={0.6}
           delay={0.12}
           once
-          className="text-base sm:text-lg lg:text-xl mt-2 sm:mt-3 text-muted-foreground max-w-prose md:max-w-75 xl:max-w-none text-center lg:text-left mx-auto lg:mx-0"
+          className="text-body mt-2 sm:mt-3 text-muted-foreground max-w-prose md:max-w-75 lg:max-w-80 2xl:max-w-none text-center lg:text-left mx-auto lg:mx-0"
         >
           Frontend engineer specialized in building modern web applications.
         </TextAnimate>
@@ -97,7 +97,7 @@ export const ProfileInfo = () => {
           <Subtitle icon={<SailboatIcon />} animation="slideRight" delay={0.25}>
             A ship in harbor is safe, but that is not what ships are built for.
           </Subtitle>
-          <a href="mailto:mrluisfeer@gmail.com">
+          <a href="mailto:mrluisfeer@gmail.com" className="w-fit">
             <Subtitle
               className="hover:text-blue-600 focus-within:text-blue-600 transition-colors hover:underline focus-within:underline"
               icon={<MailIcon />}
