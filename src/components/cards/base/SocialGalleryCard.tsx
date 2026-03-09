@@ -1,6 +1,7 @@
 // components/cards/social/SocialGalleryCard.tsx
 import { cn } from "@/lib/utils";
 import type { VariantProps } from "class-variance-authority";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import { Card, CardContent } from "../../ui/card";
 import { CardInfo } from "./CardInfo";
@@ -64,6 +65,7 @@ export interface SocialGalleryCardProps extends CardVariants {
 
   // Card styles
   cardClassName?: string;
+  entryDelay?: number;
 }
 
 export function SocialGalleryCard({
@@ -104,7 +106,9 @@ export function SocialGalleryCard({
 
   // Card styles
   cardClassName,
+  entryDelay = 0,
 }: SocialGalleryCardProps) {
+  const prefersReducedMotion = useReducedMotion();
   const validImages = getValidImages(images);
   const isSingleImage = singleImageMode || validImages.length === 1;
   const effectiveMaxImages =
@@ -113,6 +117,8 @@ export function SocialGalleryCard({
     0,
     isSingleImage ? 1 : effectiveMaxImages
   );
+  const enableBaseMotion =
+    !prefersReducedMotion && (hover === "subtle" || hover === "none");
 
   // Determinar qué renderizar en el lado derecho
   const renderRightContent = () => {
@@ -157,12 +163,48 @@ export function SocialGalleryCard({
   };
 
   return (
-    <a
+    <motion.a
       href={url}
       target="_blank"
       rel="noreferrer"
       aria-label={`Visit ${username} on ${platform}`}
       className="inline-block rounded-4xl"
+      initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
+      animate={
+        !prefersReducedMotion
+          ? {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.32,
+                ease: [0.22, 1, 0.36, 1],
+                delay: entryDelay,
+              },
+            }
+          : undefined
+      }
+      whileHover={
+        enableBaseMotion
+          ? {
+              y: -4,
+              scale: 1.01,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 24,
+                mass: 0.6,
+              },
+            }
+          : undefined
+      }
+      whileTap={
+        !prefersReducedMotion
+          ? {
+              scale: 0.995,
+              transition: { duration: 0.16, ease: "easeOut" },
+            }
+          : undefined
+      }
     >
       <Card
         className={cn(
@@ -188,6 +230,6 @@ export function SocialGalleryCard({
           {renderRightContent()}
         </CardContent>
       </Card>
-    </a>
+    </motion.a>
   );
 }

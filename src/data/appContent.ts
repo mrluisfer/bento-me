@@ -26,7 +26,7 @@ export type CardIconKey =
   | "plus"
   | "user";
 
-export type ProfileIconKey = "mail" | "map" | "quote";
+export type ProfileIconKey = "mail" | "map" | "quote" | "portfolio";
 
 export interface ProfileDetail {
   id: string;
@@ -158,6 +158,14 @@ const luisContent: AppContent = {
         animation: "blurIn",
         delay: 0.35,
       },
+      {
+        id: "website",
+        text: "mrluisfer.vercel.app",
+        icon: "portfolio",
+        href: "https://mrluisfer.vercel.app/",
+        animation: "blurIn",
+        delay: 0.45,
+      },
     ],
   },
   sections: [
@@ -183,7 +191,8 @@ const luisContent: AppContent = {
             followerCount: 65,
             socialStyle: {
               buttonPlatform: "instagram",
-              buttonClassName: "hover:opacity-90 hover:bg-[#2875CA] bg-[#4093EF]",
+              buttonClassName:
+                "hover:opacity-90 hover:bg-[#2875CA] bg-[#4093EF]",
               cardClassName: "max-w-[400px]",
             },
           },

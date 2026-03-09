@@ -13,6 +13,7 @@ import {
   socialCardPresets,
   type SocialMediaPreset,
 } from "@/constants/socialMediaPresets";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import type { AppCardItem, CardIconKey, LinkCardItem } from "@/data/appContent";
 import {
@@ -100,12 +101,15 @@ function BaseFallbackCard({
   icon,
   actionIcon,
   rightContent,
+  entryDelay = 0,
 }: {
   card: LinkCardItem;
   icon: ReactNode;
   actionIcon?: ReactNode;
   rightContent?: ReactNode;
+  entryDelay?: number;
 }) {
+  const prefersReducedMotion = useReducedMotion();
   const validImages = getValidImages(card.images ?? []);
   const isSingleImage = card.singleImageMode || validImages.length === 1;
   const layout = card.gridLayout ?? "2x2";
@@ -149,16 +153,52 @@ function BaseFallbackCard({
   };
 
   return (
-    <a
+    <motion.a
       href={card.url}
       target="_blank"
       rel="noreferrer"
       aria-label={`Visit ${card.username} on ${card.platform}`}
       className="inline-block rounded-4xl"
+      initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
+      animate={
+        !prefersReducedMotion
+          ? {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.32,
+                ease: [0.22, 1, 0.36, 1],
+                delay: entryDelay,
+              },
+            }
+          : undefined
+      }
+      whileHover={
+        !prefersReducedMotion
+          ? {
+              y: -4,
+              scale: 1.01,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 24,
+                mass: 0.6,
+              },
+            }
+          : undefined
+      }
+      whileTap={
+        !prefersReducedMotion
+          ? {
+              scale: 0.995,
+              transition: { duration: 0.16, ease: "easeOut" },
+            }
+          : undefined
+      }
     >
       <article
         className={cn(
-          "flex h-full items-start justify-between gap-4 rounded-4xl border border-border/60 bg-background/60 p-4 transition-colors hover:bg-muted/20",
+          "flex h-full items-start justify-between gap-4 rounded-4xl border border-border/60 bg-background/60 p-4 transition-[box-shadow,background-color,border-color] duration-300 ease-out hover:bg-muted/20 hover:shadow-sm motion-reduce:transition-none",
           sizeClass,
           card.baseStyle?.className,
         )}
@@ -196,11 +236,17 @@ function BaseFallbackCard({
         </div>
         {renderMedia()}
       </article>
-    </a>
+    </motion.a>
   );
 }
 
-function LinkCardRenderer({ card }: { card: LinkCardItem }) {
+function LinkCardRenderer({
+  card,
+  entryDelay = 0,
+}: {
+  card: LinkCardItem;
+  entryDelay?: number;
+}) {
   const icon = resolveIcon(card.icon);
   if (!icon) return null;
 
@@ -217,6 +263,7 @@ function LinkCardRenderer({ card }: { card: LinkCardItem }) {
         icon={icon}
         actionIcon={actionIcon}
         rightContent={rightContent}
+        entryDelay={entryDelay}
       />
     );
   }
@@ -252,14 +299,65 @@ function LinkCardRenderer({ card }: { card: LinkCardItem }) {
       singleImageMode={card.singleImageMode}
       imageClassName={card.imageClassName}
       cardClassName={cn(preset?.cardClassName, card.socialStyle.cardClassName)}
+      entryDelay={entryDelay}
     />
   );
 }
 
-export function CardRenderer({ card }: { card: AppCardItem }) {
+export function CardRenderer({
+  card,
+  entryDelay = 0,
+}: {
+  card: AppCardItem;
+  entryDelay?: number;
+}) {
+  const prefersReducedMotion = useReducedMotion();
+
   if (card.type === "youtube-embed") {
-    return <YoutubeEmbedCard url={card.url} className={card.className} />;
+    return (
+      <motion.div
+        className="inline-block rounded-4xl"
+        initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
+        animate={
+          !prefersReducedMotion
+            ? {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.32,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: entryDelay,
+                },
+              }
+            : undefined
+        }
+        whileHover={
+          !prefersReducedMotion
+            ? {
+                y: -4,
+                scale: 1.01,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 24,
+                  mass: 0.6,
+                },
+              }
+            : undefined
+        }
+        whileTap={
+          !prefersReducedMotion
+            ? {
+                scale: 0.995,
+                transition: { duration: 0.16, ease: "easeOut" },
+              }
+            : undefined
+        }
+      >
+        <YoutubeEmbedCard url={card.url} className={card.className} />
+      </motion.div>
+    );
   }
 
-  return <LinkCardRenderer card={card} />;
+  return <LinkCardRenderer card={card} entryDelay={entryDelay} />;
 }
