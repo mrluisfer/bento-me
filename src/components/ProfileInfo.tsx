@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import type { ProfileContent, ProfileIconKey } from "@/data/appContent";
 import { MailIcon, MapIcon, SailboatIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -47,19 +48,22 @@ function Subtitle({
   );
 }
 
-export const ProfileInfo = () => {
+const profileIconMap: Record<ProfileIconKey, ReactNode> = {
+  map: <MapIcon />,
+  quote: <SailboatIcon />,
+  mail: <MailIcon />,
+};
+
+export const ProfileInfo = ({ profile }: { profile: ProfileContent }) => {
   return (
     <header className="pt-4 sm:pt-8 lg:pt-16 lg:sticky lg:top-16 lg:self-start lg:h-fit mb-8 lg:mb-0">
       <Avatar className="size-24 sm:size-32 lg:size-46 mt-2 sm:mt-4 mx-auto lg:mx-0">
-        <AvatarImage
-          src="/profile.webp"
-          alt="Selfie de Luis Alvarez modificada con I.A."
-        />
-        <AvatarFallback>LA</AvatarFallback>
+        <AvatarImage src={profile.avatar.src} alt={profile.avatar.alt} />
+        <AvatarFallback>{profile.avatar.fallback}</AvatarFallback>
       </Avatar>
       <div className="mt-4 sm:mt-6 lg:mt-8 ml-0 sm:ml-2">
         <a
-          href="https://mrluisfer.vercel.app/"
+          href={profile.websiteUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 rounded w-fit mx-auto lg:mx-0 block"
@@ -73,7 +77,7 @@ export const ProfileInfo = () => {
             as={"h1"}
             className="text-title font-bold mt-4 text-center lg:text-left"
           >
-            Luis Alvarez
+            {profile.name}
           </TextAnimate>
         </a>
         <TextAnimate
@@ -84,29 +88,40 @@ export const ProfileInfo = () => {
           once
           className="text-body mt-2 sm:mt-3 text-muted-foreground max-w-prose md:max-w-75 lg:max-w-80 2xl:max-w-none text-center lg:text-left mx-auto lg:mx-0"
         >
-          Frontend engineer specialized in building modern web applications.
+          {profile.description}
         </TextAnimate>
         <div
           className={
             "md:flex gap-4 md:justify-center lg:justify-start lg:flex-wrap lg:flex-col lg:gap-0"
           }
         >
-          <Subtitle icon={<MapIcon />} animation="slideLeft" delay={0.15}>
-            Based in Mexico.
-          </Subtitle>
-          <Subtitle icon={<SailboatIcon />} animation="slideRight" delay={0.25}>
-            A ship in harbor is safe, but that is not what ships are built for.
-          </Subtitle>
-          <a href="mailto:mrluisfeer@gmail.com" className="w-fit">
-            <Subtitle
-              className="hover:text-blue-600 focus-within:text-blue-600 transition-colors hover:underline focus-within:underline"
-              icon={<MailIcon />}
-              animation="blurIn"
-              delay={0.35}
-            >
-              mrluisfeer@gmail.com
-            </Subtitle>
-          </a>
+          {profile.details.map((detail) => {
+            if (detail.href) {
+              return (
+                <a key={detail.id} href={detail.href} className="w-fit">
+                  <Subtitle
+                    className="hover:text-blue-600 focus-within:text-blue-600 transition-colors hover:underline focus-within:underline"
+                    icon={profileIconMap[detail.icon]}
+                    animation={detail.animation}
+                    delay={detail.delay}
+                  >
+                    {detail.text}
+                  </Subtitle>
+                </a>
+              );
+            }
+
+            return (
+              <Subtitle
+                key={detail.id}
+                icon={profileIconMap[detail.icon]}
+                animation={detail.animation}
+                delay={detail.delay}
+              >
+                {detail.text}
+              </Subtitle>
+            );
+          })}
         </div>
       </div>
     </header>
