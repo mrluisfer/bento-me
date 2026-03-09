@@ -217,6 +217,10 @@
   }
   html {
     @apply font-sans;
+    font-family: "Linik Sans", "Figtree Variable", sans-serif;
+  }
+  body {
+    font-family: inherit;
   }
   h1,
   h2,
