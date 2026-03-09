@@ -1,6 +1,6 @@
 import { SpotifyIcon } from "@/components/icons/spotify";
-import { SocialGalleryCard } from "../base/SocialGalleryCard";
 import { AudioWaveformIcon } from "lucide-react";
+import { SocialGalleryCard } from "../base/SocialGalleryCard";
 
 export const SpotifyCard = () => {
   return (
@@ -10,7 +10,7 @@ export const SpotifyCard = () => {
       username="Deja que la música hable cuando las palabras no bastan"
       url="https://open.spotify.com/playlist/49spccWMHTuffh4NQiR4RN"
       images={["/images/spotify/playlist1.webp"]}
-      buttonClassName="bg-[#1ED760] hover:bg-[#1aa34a]"
+      buttonClassName="bg-[#1cc557] hover:bg-[#1aa34a]"
       actionLabel="Listen"
       cardClassName="bg-[#EDFCF3] hover:bg-[#E7F9EE]"
       actionIcon={<AudioWaveformIcon />}
