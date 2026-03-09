@@ -73,7 +73,9 @@ export function CardInfo({
               {subtitle}
             </TooltipTrigger>
             <TooltipContent>
-              <p className="text-caption text-muted-foreground/90">{subtitle}</p>
+              <p className="text-caption text-muted-foreground/90">
+                {subtitle}
+              </p>
             </TooltipContent>
           </Tooltip>
         )}
@@ -86,7 +88,7 @@ export function CardInfo({
             buttonVariants({ platform: buttonPlatform }),
             buttonClassName,
           )}
-          size="sm"
+          size="default"
           render={<span />}
         >
           {actionIcon}
