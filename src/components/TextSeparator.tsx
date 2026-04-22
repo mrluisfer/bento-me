@@ -1,11 +1,21 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
-export function TextSeparator({ children }: { children: ReactNode }) {
+interface TextSeparatorProps {
+  children: ReactNode;
+  id?: string;
+  className?: string;
+}
+
+export function TextSeparator({ children, id, className }: TextSeparatorProps) {
   return (
-    <div className="block p-2 sm:p-3 lg:p-4" role="heading" aria-level={2}>
-      <p className="text-title leading-tight font-semibold tracking-tight capitalize">
+    <div className={cn("block p-2 sm:p-3 lg:p-4", className)}>
+      <h2
+        id={id}
+        className="text-title leading-tight font-semibold tracking-tight capitalize"
+      >
         {children}
-      </p>
+      </h2>
     </div>
   );
 }

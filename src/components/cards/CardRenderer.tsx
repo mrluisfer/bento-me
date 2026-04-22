@@ -156,9 +156,9 @@ function BaseFallbackCard({
     <motion.a
       href={card.url}
       target="_blank"
-      rel="noreferrer"
-      aria-label={`Visit ${card.username} on ${card.platform}`}
-      className="inline-block rounded-4xl"
+      rel="noopener noreferrer"
+      aria-label={`${card.platform} — ${card.username} (se abre en una pestaña nueva)`}
+      className="group/card inline-block rounded-4xl focus-visible:outline-none"
       initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
       animate={
         !prefersReducedMotion
@@ -316,21 +316,22 @@ export function CardRenderer({
   if (card.type === "youtube-embed") {
     return (
       <motion.div
-        className="inline-block rounded-4xl"
+        className="inline-flex rounded-4xl"
         initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
-        animate={
+        whileInView={
           !prefersReducedMotion
             ? {
                 opacity: 1,
                 y: 0,
                 transition: {
-                  duration: 0.32,
+                  duration: 0.38,
                   ease: [0.22, 1, 0.36, 1],
                   delay: entryDelay,
                 },
               }
             : undefined
         }
+        viewport={{ once: true, margin: "-40px" }}
         whileHover={
           !prefersReducedMotion
             ? {

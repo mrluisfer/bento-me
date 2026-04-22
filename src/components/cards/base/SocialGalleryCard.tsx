@@ -166,9 +166,9 @@ export function SocialGalleryCard({
     <motion.a
       href={url}
       target="_blank"
-      rel="noreferrer"
-      aria-label={`Visit ${username} on ${platform}`}
-      className="inline-block rounded-4xl"
+      rel="noopener noreferrer"
+      aria-label={`${platform} — ${username} (se abre en una pestaña nueva)`}
+      className="group/card inline-block rounded-4xl focus-visible:outline-none"
       initial={!prefersReducedMotion ? { opacity: 0, y: 14 } : undefined}
       animate={
         !prefersReducedMotion

@@ -30,11 +30,13 @@ export const socialCardPresets = {
   portfolio: {
     hideAction: true,
     subtitle: "mrluisfer.vercel.app",
-    cardClassName: "bg-[#f7faff] hover:bg-[#eef3ff]",
+    cardClassName:
+      "bg-[#f7faff] hover:bg-[#eef3ff] dark:bg-[#101a2b] dark:hover:bg-[#18243a] dark:border-[#1e2a42]",
   },
   twitch: {
     buttonClassName: "bg-[#9146FF] hover:bg-[#772ce8]",
-    cardClassName: "bg-[#F6F2FF] hover:bg-[#EFE5FF]",
+    cardClassName:
+      "bg-[#F6F2FF] hover:bg-[#EFE5FF] dark:bg-[#1c1432] dark:hover:bg-[#261a42] dark:border-[#2f2352]",
   },
 } as const satisfies Record<string, SocialMediaPreset>;
 

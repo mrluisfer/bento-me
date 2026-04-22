@@ -208,7 +208,8 @@ const luisContent: AppContent = {
               variant: "compact",
               buttonPlatform: "twitter",
               buttonClassName: "bg-[#1DA1F2] hover:bg-[#0C8BD9]",
-              cardClassName: "bg-[#F5FAFE] hover:bg-[#F0F7FD]",
+              cardClassName:
+                "bg-[#F5FAFE] hover:bg-[#F0F7FD] dark:bg-[#0d1f31] dark:hover:bg-[#12283f] dark:border-[#1b324d]",
             },
           },
           {
@@ -228,7 +229,8 @@ const luisContent: AppContent = {
             socialStyle: {
               buttonPlatform: "spotify",
               buttonClassName: "bg-[#1ED760] hover:bg-[#1aa34a]",
-              cardClassName: "bg-[#EDFCF3] hover:bg-[#E7F9EE]",
+              cardClassName:
+                "bg-[#EDFCF3] hover:bg-[#E7F9EE] dark:bg-[#0d2217] dark:hover:bg-[#102c1d] dark:border-[#173b27]",
             },
           },
           {

@@ -209,18 +209,26 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    letter-spacing: -0.005em;
-  }
   html {
     @apply font-sans;
     font-family: "Linik Sans", "Figtree Variable", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   body {
+    @apply bg-background text-foreground antialiased;
     font-family: inherit;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    min-height: 100dvh;
+    text-rendering: optimizeLegibility;
   }
   h1,
   h2,
@@ -232,9 +240,17 @@
     line-height: 1.2;
     letter-spacing: -0.02em;
     font-weight: 700;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
   small {
     font-size: 0.875rem;
     line-height: 1.4;
+  }
+  ::selection {
+    background-color: color-mix(in oklab, var(--ring) 35%, transparent);
+    color: var(--foreground);
   }
 }

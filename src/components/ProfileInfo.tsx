@@ -67,7 +67,7 @@ export const ProfileInfo = ({ profile }: { profile: ProfileContent }) => {
   );
 
   return (
-    <header className="pt-2 sm:pt-5 xl:pt-10 xl:sticky xl:top-10 xl:self-start xl:h-fit mb-8 xl:mb-0">
+    <header className="pt-2 sm:pt-5 xl:pt-10 xl:sticky xl:top-10 xl:self-start xl:h-fit mb-10 xl:mb-0">
       <Avatar className="size-24 sm:size-32 lg:size-46 mt-2 sm:mt-4 mx-auto xl:mx-0 overflow-hidden">
         <motion.div
           className="size-full"
@@ -108,7 +108,8 @@ export const ProfileInfo = ({ profile }: { profile: ProfileContent }) => {
           href={profile.websiteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 rounded w-fit mx-auto xl:mx-0 block"
+          aria-label={`Abrir el sitio web personal de ${profile.name} (se abre en una pestaña nueva)`}
+          className="no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-ring rounded-lg w-fit mx-auto xl:mx-0 block transition-colors hover:text-foreground"
         >
           <TextAnimate
             animation="scaleUp"

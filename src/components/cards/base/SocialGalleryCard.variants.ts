@@ -11,7 +11,7 @@ export const cardVariants = cva(
       },
       hover: {
         none: "",
-        subtle: "hover:bg-[#FBFBFB]",
+        subtle: "hover:bg-[#FBFBFB] dark:hover:bg-white/5",
         scale: "hover:scale-[1.02]",
         lift: "hover:-translate-y-1 hover:shadow-lg",
         brightness: "hover:brightness-105",
