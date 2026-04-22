@@ -172,13 +172,6 @@ export default defineConfig([
 
 Este proyecto está bajo la licencia MIT.
 
-## 👤 Autor
-
-**Luis Alvarez**
-
-- Email: mrluisfeer@gmail.com
-- Instagram: [@mrluisfer\_](https://instagram.com/mrluisfer_)
-
 ---
 
 Hecho con ❤️ usando React + TypeScript + Vite
